@@ -3,16 +3,17 @@ import {
   BottomTabBar,
 } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {COLORS} from '../common';
-import {navigate} from './NavigationService';
-import {NewsFeedScreen} from '../screens/NewsFeedScreen/NewsFeedScreen';
 import {BucketListScreen, ProfileScreen} from '../screens';
 import NewsFeedStack from './NewsFeedStack';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Entypo from 'react-native-vector-icons/Entypo';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,9 +25,11 @@ export const BottomStack = () => {
       options={{
         headerShown: false,
         tabBarLabel: ({color}) => (
-          <Text style={{color, marginBottom: 2}}>efef</Text>
+          <Text style={{color, marginBottom: 2}}>NewsFeed</Text>
         ),
-        tabBarIcon: ({color, size}) => <Text>fef</Text>,
+        tabBarIcon: ({color, size}) => (
+          <Ionicons name={'newspaper-outline'} size={18} color={color} />
+        ),
       }}
     />,
     <Tab.Screen
@@ -35,9 +38,11 @@ export const BottomStack = () => {
       options={{
         headerShown: false,
         tabBarLabel: ({color}) => (
-          <Text style={{color, marginBottom: 2}}>efef</Text>
+          <Text style={{color, marginBottom: 2}}>BucketList</Text>
         ),
-        tabBarIcon: ({color, size}) => <Text>fef</Text>,
+        tabBarIcon: ({color, size}) => (
+          <Entypo name={'bucket'} size={18} color={color} />
+        ),
       }}
     />,
     <Tab.Screen
@@ -46,9 +51,11 @@ export const BottomStack = () => {
       options={{
         headerShown: false,
         tabBarLabel: ({color}) => (
-          <Text style={{color, marginBottom: 2}}>efef</Text>
+          <Text style={{color, marginBottom: 2}}>Profile</Text>
         ),
-        tabBarIcon: ({color, size}) => <Text>fef</Text>,
+        tabBarIcon: ({color, size}) => (
+          <FontAwesome5 name={'user'} size={18} color={color} />
+        ),
       }}
     />,
   ];
@@ -105,18 +112,5 @@ const styles = StyleSheet.create({
   background: {
     position: 'absolute',
     top: 0,
-  },
-  button: {
-    top: -22.5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 50,
-    height: 50,
-    borderRadius: 27,
-    backgroundColor: COLORS.primary,
-  },
-  buttonIcon: {
-    fontSize: 16,
-    color: 'white',
   },
 });

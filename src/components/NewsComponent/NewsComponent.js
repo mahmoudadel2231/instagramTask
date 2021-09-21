@@ -1,12 +1,12 @@
 import React from 'react';
 import {Text, View, Image} from 'react-native';
-import {IMAGES} from '../../common';
+import {COLORS, IMAGES} from '../../common';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-export const NewsComponent = ({title}) => {
+export const NewsComponent = ({username, date, likes}) => {
   return (
     <View
       style={{
@@ -22,21 +22,27 @@ export const NewsComponent = ({title}) => {
           justifyContent: 'space-between',
           alignItems: 'center',
           height: hp(5),
-          backgroundColor: 'red',
+          backgroundColor: 'white',
+          paddingHorizontal: wp(2),
         }}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
           <Image
-            source={IMAGES.logo}
+            source={IMAGES.testUser}
             style={{
               width: wp(5),
               height: wp(5),
               borderRadius: wp(5 / 2),
-              marginHorizontal: wp(2),
+              marginRight: wp(2),
             }}
           />
-          <Text>{title}</Text>
+          <Text>{username}</Text>
         </View>
-        <Text>{title}</Text>
+        <Text>{date}</Text>
       </View>
       <Image
         source={IMAGES.testImage}
@@ -52,9 +58,12 @@ export const NewsComponent = ({title}) => {
           justifyContent: 'space-between',
           alignItems: 'center',
           height: hp(5),
-          backgroundColor: 'blue',
+          backgroundColor: 'white',
+          borderBottomColor: COLORS.gray,
+          borderBottomWidth: 0.5,
+          paddingHorizontal: wp(2),
         }}>
-        <Text>{title}</Text>
+        <Text>{likes}</Text>
       </View>
     </View>
   );

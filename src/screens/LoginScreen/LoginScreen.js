@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useForm} from 'react-hook-form';
-import {View, Image, Text, ScrollView} from 'react-native';
+import {View, Image, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {yupResolver} from '@hookform/resolvers';
 import {
   widthPercentageToDP as wp,
@@ -21,7 +21,12 @@ export const LoginScreen = ({navigation}) => {
       }),
     ),
   });
-
+  //  if (err.response.status === 401) {
+  //    setError('username', {
+  //      type: 'manual',
+  //      message: err.response.data.msg,
+  //    });
+  //  }
   const onSubmit = data => {
     console.log(data);
     navigate('home');
@@ -36,16 +41,7 @@ export const LoginScreen = ({navigation}) => {
           name="name"
           placeholder={'general.yyyy'}
           error={errors.name}
-          style={[
-            {
-              width: wp(75),
-              height: hp(7),
-              // borderBottomWidth: 2,
-              borderColor: COLORS.Black,
-              paddingBottom: 10,
-              alignItems: 'flex-start',
-            },
-          ]}
+          style={styles.input}
         />
         <CustomInput
           control={control}
@@ -53,18 +49,13 @@ export const LoginScreen = ({navigation}) => {
           placeholder={'general.yyyy'}
           error={errors.password}
           secure
-          style={[
-            {
-              width: wp(75),
-              height: hp(7),
-              // borderBottomWidth: 2,
-              borderColor: COLORS.Black,
-              paddingBottom: 10,
-              alignItems: 'flex-start',
-            },
-          ]}
+          style={styles.input}
         />
-        <Text onPress={handleSubmit(onSubmit)}>fefelf,le</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleSubmit(onSubmit)}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );

@@ -6,6 +6,7 @@ import {
   heightPercentageToDP,
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export const CustomInput = ({
   control,
@@ -21,27 +22,25 @@ export const CustomInput = ({
   maxLength,
   infoText,
 }) => {
-  // const isRTL = useSelector(state => state.langState.isRTL);
   const [secureTextEntry, setSecureTextEntry] = useState(true);
-  const [visible, setVisible] = useState(false);
   const renderSecure = props => (
     <TouchableOpacity onPress={toggleSecureEntry}>
-      <Text>feÎ</Text>
+      <MaterialCommunityIcons
+        name={secureTextEntry ? 'eye-off' : 'eye'}
+        size={22}
+        color="white"
+        // style={{width: 10}}
+      />
     </TouchableOpacity>
   );
   const renderEmpty = props => (
     <TouchableOpacity onPress={toggleSecureEntry}>
-      <Text style={{color: 'transparent'}}>feÎ</Text>
-    </TouchableOpacity>
-  );
-  const empty = props => <Text>fff</Text>;
-
-  const renderToggleButton = () => (
-    <TouchableOpacity
-      style={{height: 20, width: 20, marginRight: 15}}
-      onPress={() => setVisible(true)}>
-      {/* <Info /> */}
-      <Text>fr</Text>
+      <MaterialCommunityIcons
+        name={'keyboard-backspace'}
+        size={22}
+        color="transparent"
+        // style={{width: 10}}
+      />
     </TouchableOpacity>
   );
 
@@ -55,28 +54,29 @@ export const CustomInput = ({
   };
 
   return (
-    <View style={{marginTop: heightPercentageToDP(2)}}>
+    <View
+      style={{
+        marginTop: heightPercentageToDP(2),
+        backgroundColor: COLORS.lightGray,
+      }}>
       <Controller
         control={control}
         render={({onChange, value}) => (
           <View
-            style={[
-              {
-                backgroundColor: 'white',
-                borderColor: error ? COLORS.red : COLORS.lightGray,
-                borderWidth: 0.5,
-                borderRadius: 7,
-                flexDirection: 'row',
-                alignItems: 'center',
-              },
-            ]}>
+            style={{
+              borderColor: error ? COLORS.red : COLORS.lightGray,
+              borderWidth: 0.5,
+              borderRadius: 7,
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
             <TextInput
               maxLength={maxLength}
               value={value}
               textAlign={'left'}
               keyboardType={keyboard}
-              placeholder={`    ${placeholder}`}
-              placeholderTextColor={COLORS.lightGray}
+              placeholder={`${placeholder}`}
+              placeholderTextColor={COLORS.white}
               //  placeholderTextColor={COLORS.lightGreen}
               secureTextEntry={secure && secureTextEntry}
               onChangeText={text => onChange(text)}
@@ -84,7 +84,7 @@ export const CustomInput = ({
                 {
                   borderColor: 'transparent',
                   fontFamily: CONSTANTS.normal,
-                  color: COLORS.black,
+                  color: COLORS.white,
                 },
                 style,
               ]}
@@ -106,7 +106,6 @@ export const CustomInput = ({
             color: COLORS.red,
             alignSelf: 'flex-start',
             width: widthPercentageToDP(80),
-
             fontFamily: CONSTANTS.normal,
           }}>
           {error?.message || error}

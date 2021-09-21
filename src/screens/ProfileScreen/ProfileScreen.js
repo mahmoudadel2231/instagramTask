@@ -16,16 +16,22 @@ export const ProfileScreen = ({navigation}) => {
       <View style={styles.container}>
         <Image
           source={IMAGES.testImage}
-          style={{width: wp(40), height: hp(15)}}
+          style={{
+            width: wp(40),
+            height: hp(15),
+            marginLeft: wp(5),
+            marginTop: hp(5),
+          }}
         />
-        <Text>fefe</Text>
-        <Text>fefe</Text>
-        <Text>fefe</Text>
+        <Text style={{marginLeft: wp(5), marginTop: hp(2)}}>fefe</Text>
+        <Text style={{marginLeft: wp(5), marginTop: hp(2)}}>fefe</Text>
+        <Text style={{marginLeft: wp(5), marginTop: hp(2)}}>fefe</Text>
         <View
           style={{
             height: 0.5,
             backgroundColor: COLORS.black,
             width: wp(100),
+            marginTop: hp(2),
           }}
         />
       </View>

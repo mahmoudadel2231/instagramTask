@@ -12,7 +12,7 @@ export default function NewsFeedStack() {
         headerTitle: null,
         headerLeft: () => null,
       }}>
-      {/* <Stack.Screen name="news" component={NewsFeedScreen} /> */}
+      <Stack.Screen name="news" component={NewsFeedScreen} />
       <Stack.Screen name="addPost" component={AddPostScreen} />
     </Stack.Navigator>
   );

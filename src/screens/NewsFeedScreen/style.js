@@ -16,9 +16,9 @@ export default StyleSheet.create({
   header: {
     width: wp(100),
     height: hp(8),
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    // flex: 1,
+    flexDirection: 'row',
     backgroundColor: 'white',
     borderBottomColor: 'black',
     borderBottomWidth: 0.5,
