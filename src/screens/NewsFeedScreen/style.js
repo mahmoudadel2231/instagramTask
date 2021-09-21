@@ -10,6 +10,7 @@ export default StyleSheet.create({
     height: hp(100),
     justifyContent: 'center',
     alignItems: 'center',
+    // backgroundColor: 'red',
   },
   logo: {width: wp(40), height: wp(40), resizeMode: 'contain'},
 });

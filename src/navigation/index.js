@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {navigationRef} from './NavigationService';
 import LoginStack from './LoginStack';
+import {BottomStack} from './bottomStack';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ export default function AppContainer() {
           headerLeft: () => null,
         }}>
         <Stack.Screen name="login" component={LoginStack} />
+        <Stack.Screen name="home" component={BottomStack} />
       </Stack.Navigator>
     </NavigationContainer>
   );
