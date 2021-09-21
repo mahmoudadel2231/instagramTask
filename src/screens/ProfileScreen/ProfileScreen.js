@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React from 'react';
-import {View, Image, Text} from 'react-native';
+import {View, Image, Text, Alert} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -8,6 +9,18 @@ import {COLORS, IMAGES} from '../../common';
 import styles from './style';
 
 export const ProfileScreen = ({navigation}) => {
+  const id = 3;
+  axios
+    .get(`http://10.0.2.2:3000/user/${id}`)
+    .then(res => {
+      console.log(res.data);
+      // AsyncStorage.setItem('user', JSON.stringify(res.data));
+      // navigate('home');
+    })
+    .catch(err => {
+      console.log(err);
+      Alert.alert('Something went wrong');
+    });
   return (
     <>
       <View style={styles.header}>

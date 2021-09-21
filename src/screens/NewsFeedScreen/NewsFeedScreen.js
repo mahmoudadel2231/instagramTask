@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, FlatList, TouchableOpacity} from 'react-native';
+import {View, Text, FlatList, TouchableOpacity, Alert} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -11,8 +11,23 @@ import * as yup from 'yup';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {navigate} from '../../navigation/NavigationService';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 
 export const NewsFeedScreen = ({navigation}) => {
+  // const user = AsyncStorage.getItem('user');
+  // console.log(JSON.parse(user));
+  axios
+    .get('http://10.0.2.2:3000/newsFeed')
+    .then(res => {
+      console.log(res.data);
+      // AsyncStorage.setItem('user', JSON.stringify(res.data));
+      // navigate('home');
+    })
+    .catch(err => {
+      console.log(err);
+      Alert.alert('Something went wrong');
+    });
   return (
     <>
       <View style={styles.header}>
