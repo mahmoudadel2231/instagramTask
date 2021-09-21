@@ -11,14 +11,16 @@ import {
 import {COLORS} from '../common';
 import {navigate} from './NavigationService';
 import {NewsFeedScreen} from '../screens/NewsFeedScreen/NewsFeedScreen';
+import {BucketListScreen, ProfileScreen} from '../screens';
+import NewsFeedStack from './NewsFeedStack';
 
 const Tab = createBottomTabNavigator();
 
 export const BottomStack = () => {
   const arr = [
     <Tab.Screen
-      name="Home"
-      component={NewsFeedScreen}
+      name="news"
+      component={NewsFeedStack}
       options={{
         headerShown: false,
         tabBarLabel: ({color}) => (
@@ -29,7 +31,7 @@ export const BottomStack = () => {
     />,
     <Tab.Screen
       name="ff"
-      component={NewsFeedScreen}
+      component={BucketListScreen}
       options={{
         headerShown: false,
         tabBarLabel: ({color}) => (
@@ -39,8 +41,8 @@ export const BottomStack = () => {
       }}
     />,
     <Tab.Screen
-      name="fef"
-      component={NewsFeedScreen}
+      name="ProfileScreen"
+      component={ProfileScreen}
       options={{
         headerShown: false,
         tabBarLabel: ({color}) => (
@@ -79,7 +81,7 @@ export const BottomStack = () => {
       }}
       initialRouteName="Home"
       backBehavior="initialRoute">
-      {arr.reverse().map(item => {
+      {arr.map(item => {
         return item;
       })}
     </Tab.Navigator>

@@ -9,6 +9,7 @@ export default StyleSheet.create({
   container: {
     width: wp(100),
     height: hp(100),
+
     // justifyContent: 'center',
     // alignItems: 'center',
     // backgroundColor: 'red',
@@ -18,7 +19,6 @@ export default StyleSheet.create({
     height: hp(8),
     justifyContent: 'center',
     alignItems: 'center',
-    // flex: 1,
     backgroundColor: 'white',
     borderBottomColor: 'black',
     borderBottomWidth: 0.5,

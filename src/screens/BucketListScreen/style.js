@@ -18,7 +18,6 @@ export default StyleSheet.create({
     height: hp(8),
     justifyContent: 'center',
     alignItems: 'center',
-    // flex: 1,
     backgroundColor: 'white',
     borderBottomColor: 'black',
     borderBottomWidth: 0.5,
