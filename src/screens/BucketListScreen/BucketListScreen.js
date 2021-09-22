@@ -8,20 +8,25 @@ import {COLORS} from '../../common';
 import styles from './style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useDispatch, useSelector} from 'react-redux';
-import {add, incrementByAmount} from '../../redux/reducers/counter';
+import {add, remove} from '../../redux/actions';
 
 export const BucketListScreen = ({navigation}) => {
   const [text, setText] = useState('');
-  const count = useSelector(state => state.counter?.value);
-
-  useEffect(() => {
-    console.log('count ', count);
-  }, [count]);
+  const BucketList = useSelector(state => state.bucketListState?.list);
 
   const dispatch = useDispatch();
   const onPress = () => {
     // dispatch(incrementByAmount(1));
-    dispatch(add(1));
+    dispatch(
+      add({
+        text,
+        id: Math.random(),
+      }),
+    );
+  };
+  const onItemPress = item => {
+    // dispatch(incrementByAmount(1));
+    dispatch(remove(item.id));
   };
 
   return (
@@ -59,34 +64,36 @@ export const BucketListScreen = ({navigation}) => {
           </TouchableOpacity>
         </View>
 
-        <FlatList
-          data={[1, 2, 3, 4]}
-          ItemSeparatorComponent={() => {
-            return (
-              <View
-                style={{
-                  width: wp(90),
-                  alignSelf: 'center',
-                  height: 0.5,
-                  backgroundColor: COLORS.gray,
-                }}
-              />
-            );
-          }}
-          contentContainerStyle={{
-            paddingHorizontal: wp(2),
-            marginTop: hp(3),
-          }}
-          renderItem={() => {
-            return (
-              <TouchableOpacity>
-                <Text style={{marginVertical: hp(1), width: wp(90)}}>
-                  CAIRO
-                </Text>
-              </TouchableOpacity>
-            );
-          }}
-        />
+        {BucketList.length !== 0 && (
+          <FlatList
+            data={BucketList}
+            ItemSeparatorComponent={() => {
+              return (
+                <View
+                  style={{
+                    width: wp(90),
+                    alignSelf: 'center',
+                    height: 0.5,
+                    backgroundColor: COLORS.gray,
+                  }}
+                />
+              );
+            }}
+            contentContainerStyle={{
+              paddingHorizontal: wp(2),
+              marginTop: hp(3),
+            }}
+            renderItem={({item}) => {
+              return (
+                <TouchableOpacity onPress={() => onItemPress(item)}>
+                  <Text style={{marginVertical: hp(1), width: wp(90)}}>
+                    {item.text}
+                  </Text>
+                </TouchableOpacity>
+              );
+            }}
+          />
+        )}
       </View>
     </>
   );

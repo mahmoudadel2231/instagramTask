@@ -76,14 +76,14 @@ export const LoginScreen = ({navigation}) => {
         <CustomInput
           control={control}
           name="email"
-          placeholder={'general.yyyy'}
+          placeholder={'email'}
           error={errors.email}
           style={styles.input}
         />
         <CustomInput
           control={control}
           name="password"
-          placeholder={'general.yyyy'}
+          placeholder={'password'}
           error={errors.password}
           secure
           style={styles.input}

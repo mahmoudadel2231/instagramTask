@@ -6,7 +6,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-export const NewsComponent = ({username, date, likes}) => {
+export const NewsComponent = ({username, date, likes, image}) => {
   return (
     <View
       style={{
@@ -45,7 +45,7 @@ export const NewsComponent = ({username, date, likes}) => {
         <Text>{date}</Text>
       </View>
       <Image
-        source={IMAGES.testImage}
+        source={image}
         style={{
           height: hp(30),
           width: wp(100),

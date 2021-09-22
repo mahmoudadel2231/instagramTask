@@ -3,7 +3,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {sw} from '../../common';
+import {COLORS, sw} from '../../common';
 
 export default StyleSheet.create({
   container: {
@@ -25,5 +25,19 @@ export default StyleSheet.create({
   },
   headerText: {
     fontSize: wp(sw(14)),
+  },
+  button: {
+    marginBottom: hp(10),
+    marginTop: hp(5),
+    backgroundColor: COLORS.red,
+    width: wp(40),
+    height: hp(5),
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+  },
+  buttonText: {
+    color: COLORS.white,
   },
 });

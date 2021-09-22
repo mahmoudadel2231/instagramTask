@@ -1,47 +1,57 @@
 {
   "user": [
     {
-      "email": "user@email.com",
-      "password": "password",
+      "email": "fefe@fef.efe",
+      "password": "feef@fef.fefe",
       "name": "mahmoud",
       "age": 24,
-      "image": 5,
+      "image": 7,
       "id": 1
     },
     {
-      "email": "fefe@fef.feff",
+      "email": "eff@fef.fef",
       "password": "fefef",
       "name": "mahmoud",
       "age": 24,
-      "image": 5,
+      "image": 7,
       "id": 2
     },
     {
-      "email": "user@email.com",
-      "password": "passsword",
+      "email": "efe@fef.fef",
+      "password": "fefef",
       "name": "mahmoud",
       "age": 24,
-      "image": 5,
+      "image": 7,
       "id": 3
-    },
-    {
-      "email": "fffw@fef.fefe",
-      "password": "fefe",
-      "name": "mahmoud",
-      "age": 24,
-      "image": 5,
-      "id": 4
     }
   ],
   "newsFeed": [
     {
-      "title": "MEDIUM",
-      "author": "medium",
-      "id": 4
+      "username": "mahmoud adel",
+      "date": "5d",
+      "likes": "13",
+      "image": 4,
+      "id": 1
     },
     {
-      "title": "MEDIUM",
-      "author": "medium",
+      "username": "mahmoud adel",
+      "date": "5d",
+      "likes": "13",
+      "image": 5,
+      "id": 2
+    },
+    {
+      "username": "mahmoud adel",
+      "date": "7d",
+      "likes": "13",
+      "image": 6,
+      "id": 3
+    },
+    {
+      "username": "mahmoud adel",
+      "date": "7d",
+      "likes": "20",
+      "image": 5,
       "id": 4
     }
   ]

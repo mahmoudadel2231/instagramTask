@@ -3,51 +3,35 @@ import _ from 'lodash';
 import {ADD_BUCKET_LIST, REMOVE_BUCKET_LIST} from '../types';
 
 const INITIAL_STATE = {
-  cart: [],
-  totalPrice: 0,
-  totalCount: 0,
+  list: [],
 };
-
-// uses immer produce to handle immutable the state
 
 export default produce((draft, action = {}) => {
   switch (action.type) {
     case ADD_BUCKET_LIST:
       {
         const newState = draft;
-        const index = _.findIndex(newState.cart, {
-          prod_id: action.item.prod_id,
+        const index = _.findIndex(newState.list, {
+          id: action.item.id,
         });
         if (index !== -1) {
-          newState.cart[index] = {
+          newState.list[index] = {
             ...action.item,
-            itemTotalPrice: action.item.qty * action.item.product_price,
-            qty: action.item.qty,
           };
         } else {
-          newState.cart.push({
+          newState.list.push({
             ...action.item,
-            itemTotalPrice: action.item.qty * action.item.product_price,
           });
-          newState.totalCount += 1;
         }
-        newState.totalPrice = _.sumBy(newState.cart, 'itemTotalPrice');
       }
       break;
 
     case REMOVE_BUCKET_LIST:
       {
         const newState = draft;
-        _.remove(newState.cart, {
-          prod_id: action.prod_id,
+        _.remove(newState.list, {
+          id: action.id,
         });
-        if (newState.cart.length === 0) {
-          newState.totalPrice = 0;
-          newState.totalCount = 0;
-        } else {
-          newState.totalPrice = _.sumBy(newState.cart, 'itemTotalPrice');
-          newState.totalCount -= 1;
-        }
       }
       break;
 
