@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, FlatList, TouchableOpacity, Alert} from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -7,8 +7,6 @@ import {
 import {COLORS, IMAGES} from '../../common';
 import {NewsComponent} from '../../components';
 import styles from './style';
-import * as yup from 'yup';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {navigate} from '../../navigation/NavigationService';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -20,14 +18,16 @@ export const NewsFeedScreen = ({navigation}) => {
   axios
     .get('http://10.0.2.2:3000/newsFeed')
     .then(res => {
-      console.log(res.data);
-      // AsyncStorage.setItem('user', JSON.stringify(res.data));
+      console.log('NWWS FEED', JSON.stringify(res.data));
+      AsyncStorage.setItem('newsFeed', JSON.stringify(res.data));
+
       // navigate('home');
     })
     .catch(err => {
       console.log(err);
       Alert.alert('Something went wrong');
     });
+
   return (
     <>
       <View style={styles.header}>
@@ -60,6 +60,7 @@ export const NewsFeedScreen = ({navigation}) => {
                 username={'mahmoud adel'}
                 date={'4d'}
                 likes={'22 Like'}
+                image={''}
               />
             );
           }}

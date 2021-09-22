@@ -1,56 +1,43 @@
 {
   "user": [
     {
-      "email": "mahmoud@adel.com",
-      "password": "123456",
+      "email": "user@email.com",
+      "password": "password",
+      "name": "mahmoud",
+      "age": 24,
+      "image": 5,
       "id": 1
     },
     {
-      "email": "mahmoud@adel.com",
-      "password": "123456",
+      "email": "fefe@fef.feff",
+      "password": "fefef",
+      "name": "mahmoud",
+      "age": 24,
+      "image": 5,
       "id": 2
     },
     {
-      "email": "fef@frg.grg",
-      "password": "grgrg",
+      "email": "user@email.com",
+      "password": "passsword",
+      "name": "mahmoud",
+      "age": 24,
+      "image": 5,
       "id": 3
     },
     {
-      "email": "fefe@fef.fef",
-      "password": "fefef",
+      "email": "fffw@fef.fefe",
+      "password": "fefe",
+      "name": "mahmoud",
+      "age": 24,
+      "image": 5,
       "id": 4
-    },
-    {
-      "email": "vdvd@ferf.grb",
-      "password": "fefefe",
-      "id": 5
-    },
-    {
-      "email": "fefe@fef.fefe",
-      "password": "fefef",
-      "id": 6
-    },
-    {
-      "email": "fefe@fefe.fefe",
-      "password": "fefefe",
-      "id": 7
     }
   ],
   "newsFeed": [
     {
-      "title": "JSON SERVER",
-      "author": "foo",
-      "id": 1
-    },
-    {
-      "title": "REACT",
-      "author": "facebook",
-      "id": 2
-    },
-    {
-      "title": "BOOTSTRAP",
-      "author": "css master",
-      "id": 3
+      "title": "MEDIUM",
+      "author": "medium",
+      "id": 4
     },
     {
       "title": "MEDIUM",

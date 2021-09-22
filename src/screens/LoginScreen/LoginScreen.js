@@ -18,8 +18,7 @@ import {CustomInput} from '../../components';
 import styles from './style';
 import * as yup from 'yup';
 import {navigate} from '../../navigation/NavigationService';
-import {useDispatch, useSelector} from 'react-redux';
-import {increment} from '../../redux/reducer/counter';
+import {useDispatch} from 'react-redux';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -33,9 +32,9 @@ export const LoginScreen = ({navigation}) => {
     ),
   });
   const dispatch = useDispatch();
-  const count = useSelector(state => state.counter.value);
+  // const count = useSelector(state => state.counter.value);
   const [userState, setUserState] = useState({});
-  console.log(count);
+  // console.log(count);
   //  if (err.response.status === 401) {
   //    setError('username', {
   //      type: 'manual',
@@ -44,9 +43,6 @@ export const LoginScreen = ({navigation}) => {
   //  }
 
   const onSubmit = data => {
-    // console.log(data);
-    // navigate('home');
-    // dispatch(increment());
     axios
       .post(
         'http://10.0.2.2:3000/user',
@@ -55,6 +51,7 @@ export const LoginScreen = ({navigation}) => {
           password: data?.password,
           name: 'mahmoud',
           age: 24,
+          image: require('../../assets/images/testUser.png'),
         },
         {
           headers: {
@@ -64,26 +61,14 @@ export const LoginScreen = ({navigation}) => {
         },
       )
       .then(res => {
-        console.log(res.data);
-        // AsyncStorage.setItem('user', JSON.stringify(res.data));
+        AsyncStorage.setItem('user', JSON.stringify(res.data));
         navigate('home');
       })
       .catch(err => {
         console.log(err);
         Alert.alert('Something went wrong');
       });
-    // axios
-    //   .get('http://10.0.2.2:3000/posts', {
-    //     headers: {
-    //       Accept: 'application/json',
-    //       'Content-Type': 'application/json',
-    //     },
-    //   })
-    //   .then(res => {
-    //     console.log(res.data);
-    //   });
   };
-  console.log('userState', userState);
   return (
     <ScrollView>
       <View style={styles.container}>

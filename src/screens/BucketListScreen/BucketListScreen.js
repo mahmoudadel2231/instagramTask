@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity, FlatList} from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -7,9 +7,23 @@ import {
 import {COLORS} from '../../common';
 import styles from './style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {useDispatch, useSelector} from 'react-redux';
+import {add, incrementByAmount} from '../../redux/reducers/counter';
 
 export const BucketListScreen = ({navigation}) => {
   const [text, setText] = useState('');
+  const count = useSelector(state => state.counter?.value);
+
+  useEffect(() => {
+    console.log('count ', count);
+  }, [count]);
+
+  const dispatch = useDispatch();
+  const onPress = () => {
+    // dispatch(incrementByAmount(1));
+    dispatch(add(1));
+  };
+
   return (
     <>
       <View style={styles.header}>
@@ -38,7 +52,7 @@ export const BucketListScreen = ({navigation}) => {
           />
           <TouchableOpacity
             onPress={() => {
-              console.log('ff');
+              onPress();
               setText('');
             }}>
             <AntDesign name={'plussquareo'} size={30} color={COLORS.gray} />

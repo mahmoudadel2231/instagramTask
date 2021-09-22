@@ -1,1 +1,2 @@
-export const CHANGE_LANG = 'CHANGE_LANG';
+export const ADD_BUCKET_LIST = 'ADD_BUCKET_LIST';
+export const REMOVE_BUCKET_LIST = 'REMOVE_BUCKET_LIST';
